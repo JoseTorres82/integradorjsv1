@@ -1,0 +1,484 @@
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto:wght@300;400;500&display=swap');
+
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+
+  a {
+      text-decoration: none;
+  }
+  h1, h2, h3 {
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  :root {
+      --primary-color: #0d0d0d;
+      --secondary-color: #f5f5f5;
+      --first-font: font-family: 'Poppins', sans-serif;
+      --second-font: font-family: 'Roboto', sans-serif;
+  }
+
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+  }
+
+  body {
+      background-color: #fafafa;
+      margin: 0 auto;
+  }
+  header {
+    background-color: #000;
+    border-bottom: 2px solid #060120;
+    box-shadow: 0px 5px 15px #060120;
+  }
+  header .header-topper {
+      width: 100%;
+      height: 30px;
+      background-color: #0f0f0f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .header-topper a {
+      margin: 0 auto;
+      color: #f5f5f5;
+      font-size: 12px;
+      line-height: 1.6;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+      padding: 15px;
+  }
+
+  .header-topper i {
+      margin: 0 auto;
+      padding: 5px;
+      border-left: solid 1px #585858;
+  }
+
+  #header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 80px;
+      background: #000;
+/*       border-bottom: 2px solid #060120;
+      box-shadow: 0px 5px 15px #060120; */
+      padding: 15px;
+    }
+
+  #header-container .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  #header-container .logo h1 {
+      color: transparent;
+      background: linear-gradient(to right, rgb(185, 100, 255), rgb(103, 74, 255), rgb(12, 204, 238));
+      -webkit-background-clip: text;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.5;
+      letter-spacing: 1px;
+      font-weight: 600px;
+  }
+
+  #header-container .logo span {
+      color: #fafafa;
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 1px;
+  }
+
+  #nav-button {
+      width: 80px;
+      height: 40px;
+      margin: 0 auto;
+      background-color: #000;
+      color: #f5f5f5;
+      font: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      border: none;
+      text-align: center;
+      letter-spacing: 1px;
+      border-radius: 5px;
+      cursor: pointer;
+  }
+
+  #nav-button:hover {
+      background-color: #0d0d0d;
+  }
+/*  */
+  #main-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: block;
+      place-content: center;
+  }
+
+  .shortcuts__menu {
+      max-width: 1000px;
+      margin: 0 auto;
+      margin-top: 30px;
+  }
+
+  .shortcuts__menu ul {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+  }
+
+  .shortcuts__menu ul li {
+      margin: 0 auto;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      line-height: 3.6;
+      letter-spacing: 1px;
+      font-family: 'Roboto', sans-serif;
+  }
+
+  .shortcuts__menu ul li i {
+      margin: 0 auto;
+      font-size: 25px;
+      color: #346add;
+  }
+
+  .shortcuts__menu ul li a {
+      margin: 0 auto;
+      color: #373838;
+  }
+
+  #hero-container {
+      max-width: 1200;
+      margin: 0 auto;
+      padding: 0 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+/*       position: relative; */
+      height: 420px;
+      gap: 53px;
+      margin: 56px;
+      margin-bottom: 25px;
+      /* box-shadow: 0px 2px 5px rgba(0, 0, 0, .2);
+      border-radius: 10px; */
+  }
+  @media (max-width:992px){
+    #hero-container{
+        margin: 0 auto;
+        display: block;
+    }
+    #hero-container p{
+        margin: 0 auto;
+        display: block;
+        margin-bottom: 15px;
+        padding: auto;
+    } 
+    .cards-ofertas {
+        margin: 0 auto;
+        margin-top: 100px; 
+    } 
+    .hero-image{/* 
+        max-width: 300px;
+        margin: 0 auto; */
+        width: 100%;
+        overflow: auto;
+    }
+  }
+  #hero-container h2 {
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      color: #0f0f0f;
+  }
+
+  #hero-container p {
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+
+  }
+
+  #hero-container .hero-image {
+      border-radius: 15px;
+  }
+
+  #hero-container p span {
+      color: #346add;
+      font-weight: 700;
+  }
+
+  .hero-text button {
+      width: 80px;
+      height: 45px;
+      border-radius: 10px;
+      border: none;
+      margin-top: 10px;
+      background: #346add;
+      color: #f5f5f5;
+      text-transform: uppercase;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+  }
+
+  .hero-text button:hover {
+      filter: drop-shadow(2px 2px 0px rgb(185, 100, 255)) drop-shadow(2px 2px 0px rgb(103, 74, 255)) 
+      drop-shadow(2px 2px 0px rgb(12, 204, 238));
+      scale: 1.05;
+  }
+
+  /* Cards */
+
+  .cards-container {
+    max-width: 1200;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    gap: 53px;
+    margin-bottom: 25px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, .2);
+    width: 100%;
+    height: auto;
+    background: #f5f5f5;
+    overflow: hidden;
+}
+  .cards-ofertas{
+    max-width: 1100;
+    margin: 0 auto;
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+/*     position: relative; */
+    height: auto;
+  }
+  .cards-container h2{
+    margin-top: 10px;
+    font-size: 35px;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+  }
+  .card {
+    width: 240px;
+    height: 350px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    /* background: linear-gradient(to left, rgb(189, 136, 231), rgb(169, 154, 245), rgb(136, 211, 224)); */
+    border: solid 1px #a8a8a8;
+    margin-bottom: 10px;
+    transition: .5s;
+    place-content: center;
+    font-family: 'Roboto',sans-serif;
+    text-align: center;
+  }
+
+  .card:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 10px 18px rgba(0, 0, 0, .2);
+  }
+
+
+  .card img {
+    font-family: 'Poppins',sans-serif;
+    width: 220px;
+    border-radius: 5px;
+  }
+
+  .card p span {
+    color: #346add;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  /*  */
+  .experiencia {
+    width: 100%;
+    height: auto;
+    background: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 0;
+    margin-top: 80px;
+  }
+  .experiencia  h2 {
+    font-size: 35px;
+    font-weight: 700;
+    color: #0f0f0f;
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  .experiencia .card-experiencias {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  .experiencia .card-experiencias .cardE {
+    box-sizing: border-box;
+    border: 1px solid #dbdae3;
+    width: 300px;
+    height: 100%;
+    padding: 16px;
+    transition: all .3s;
+    border-radius: 4px;
+    margin: 5px;
+}
+.experiencia .card-experiencias .cardE p{
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+.experiencia .card-experiencias .cardE p span{
+    color: #346add;
+    font-weight: 700;
+    
+}
+.experiencia .card-experiencias .cardE button{
+    width: 90%;
+    height: 30px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    background-color: #0a0330;
+    border-radius: 4px;
+    color: #f5f5f5;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    text-transform: uppercase;
+}
+
+.redes { 
+    width: 100%;
+    height: auto;
+    background: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 0;
+    margin-top: 80px;
+  }
+
+  .redes_Iconos{
+    box-sizing: border-box;
+    /* border: 1px solid #dbdae3; */
+    height: 100%;
+    padding: 16px;
+    transition: all .3s;
+    border-radius: 15px;
+    margin: 15px; 
+  }
+  .redes_Iconos i {
+    background-color: #dbdae3;
+    width: 100px;
+    font-size: 40px;
+    border-radius: 10px;
+    color: #346add;
+    cursor: pointer;
+    margin: 5px;
+    padding: 10px;
+    transition: .3S;
+  }
+
+  .redes_Iconos i:hover{
+    color: #585858;
+    background-color: #dbdae3;
+    transform: scale(1.1);
+    box-shadow: 0px 10px 18px rgba(0, 0, 0, .2);
+  }
+.hogar{
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 500px;
+    padding: 15px;
+    background-image: url(/assets/productos/hogar/blur-close-up-device-442576-1000x665.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;   
+    color: #0a0330;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+}
+.nota {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 500px;
+    padding: 15px;
+    background-image: url(/assets/productos/Celulares/s22Ultrawallppr.jpg);
+    background-repeat: no-repeat;
+    overflow: fill;   
+    color: #f5f5f5;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
+
+
+  /* footer */
+footer {
+    background-color: #0d0d0d;
+}
+.footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #0d0d0d;
+    height: auto;
+    padding: 48px;
+    color: #f5f5f5;
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-content: center;
+    align-content: center;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    font-family: 'Roboto',sans-serif;
+    padding-bottom: 30px;
+}
+.footer ul li{
+    list-style: none;
+}
+.footer .box {
+    margin: 20px ;
+}
+.end-footer {
+    background-color: #212121;
+    color: #f5f5f5;
+    font-family: 'Roboto',sans-serif;
+    text-align: center;
+    padding: 5px;
+  }
+.end-footer span{
+    color: transparent;
+      background: linear-gradient(to right, rgb(185, 100, 255), rgb(103, 74, 255), rgb(12, 204, 238));
+      -webkit-background-clip: text;
+      font-family: 'Poppins', sans-serif;
+  }
