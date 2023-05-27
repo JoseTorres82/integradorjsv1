@@ -179,6 +179,9 @@
 
 
   @media (max-width:992px) {
+    header{
+      width: 100%;
+    }
 
     .shortcuts__menu ul li {
       width: 20%;
