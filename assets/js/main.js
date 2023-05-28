@@ -6,6 +6,7 @@ const productos = [
       caracteristicas: ["Diametro: 9 cm, Altura: 23 cm, Capacidad: 591ml, Incluye tapa: Si"],
       imagen: "./assets/productos/hogar/stanley-quencher-tumbler-april-2023-642b61bd06f19.png",
       categoria: 'hogar',
+      category:'oferta',
     },
     {
       id: 2,
@@ -22,7 +23,7 @@ const productos = [
       precio: 21.300,
       caracteristicas: ["Dimensiones: 29.4 × 9.5 × 9.5 cm, Capacidad: 454ml, Incluye tapa: Si"],
       imagen: "./assets/productos/hogar/stanley_pinta.jpg",
-      categoria: 'Hogar',
+      categoria: 'Hogar, oferta',
 
     },
     { 
@@ -54,6 +55,7 @@ const productos = [
                        "Con NFC / Huella:Si"],
       imagen: "./assets/productos/Celulares/s22Ultra.jpg",
       categoria: 'Celulares',
+      category:'oferta',
       },
       { 
       id: 7,
@@ -82,11 +84,12 @@ const productos = [
                        "Con NFC / Huella:Si"],
       imagen: "./assets/productos/Celulares/MotoG22.jpg",
       categoria: 'Celulares',
+      category:'oferta',
       },
       { 
       id: 9,
       nombre: "PlayStation 5 ",
-      precio: 69.999,
+      precio: 149.999,
       caracteristicas: ["Memoria Interna: 128Gb",
                        "Memoria Ram: 4Gb",
                        "Camara Principal: 50 Mpx",
@@ -96,11 +99,12 @@ const productos = [
                        "Con NFC / Huella:Si"],
       imagen: "./assets/productos/Celulares/MotoG22.jpg",
       categoria: 'Gaming',
+      category:'oferta',
       },
       { 
       id: 10,
       nombre: "Nintendo Switch",
-      precio: 69.999,
+      precio: 179.999,
       caracteristicas: ["Memoria Interna: 128Gb",
                        "Memoria Ram: 4Gb",
                        "Camara Principal: 50 Mpx",
@@ -113,4 +117,11 @@ const productos = [
       },
       
   ];
+  
+  const ofertas = document.getElementsByClassName('card-experiencias');
+
+
+  const productosOferta = productos.filter(producto => producto.category == "oferta");
+  console.log(productosOferta);
+  
   

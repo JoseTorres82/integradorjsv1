@@ -126,10 +126,12 @@
     letter-spacing: 1px;
     border-radius: 5px;
     cursor: pointer;
+    transition: all .2s;
   }
 
   #nav-button:hover {
     background-color: #3f3f3f;
+    transform: scale(1.1);
   }
 
   /*  */
@@ -262,7 +264,6 @@
     align-items: center;
     top: 50px;
     margin-bottom: 80px;
-    border-radius: 0px 0px 25px 25px;
     position: relative;
     color: #f5f5f5;
     text-align: center;
@@ -271,7 +272,7 @@
     width: 100%;
     height: 100%;
     background-color: rgb(0, 22, 40, .45);
-    border-radius: 0px 0px 25px 25px;
+    
 
   }
   
@@ -302,17 +303,17 @@
     font-weight: 600;
   }
   .hero-promo  button{
-    background-color: transparent;
+    background-color: #346add;
     color: #fff;  
     width: 80px;
     height: 35px;
+    border: none;
     border-radius: 4px;
-    border:solid 1px #0d0d0d;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
     margin: 15px;
-    transition: .1;
+    transition: .3s;
   }
 
   .hero-promo button:hover {
@@ -320,10 +321,15 @@
     scale: 1.05; */
     transform: scale(1.1);
     font-weight: 700;
-    background-color: #0d0d0d;
+    
   }
   .hero-promo  i {
     color: #346add;
+    transition: all .3s;
+    cursor: pointer;
+  }
+  .hero-promo i:hover{
+    transform: scale(1.1);
   }
   /* 
   .hero-promo {
