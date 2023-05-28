@@ -179,6 +179,12 @@
 
 
   @media (max-width:992px) {
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      place-content: center;
+    }
     header{
       width: 100%;
     }
