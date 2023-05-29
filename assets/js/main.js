@@ -119,9 +119,26 @@ const productos = [
   ];
   
   const ofertas = document.getElementsByClassName('card-experiencias');
-
-
   const productosOferta = productos.filter(producto => producto.category == "oferta");
   console.log(productosOferta);
   
+
+  //Menú de navegacion aca debajo
+  const toggleButton = document.getElementById('button-menu');
+  const navWrapper = document.getElementById('nav-list');
+  const closeMenu = document.getElementById('button-menu');
+
+  toggleButton.addEventListener('click',()=> {
+    navWrapper.classList.toggle('show');
+    navWrapper.classList.toggle('close');
+    /* closeMenu.innerHTML = 'X';  */
+     
+  });
+
+  navWrapper.addEventListener('click', e=>{ 
+  if (e.toggle.id === 'nav-list'){
+    navWrapper.classList.toggle('close'),
+    toggleButton.classList.remove('show');
   
+  };
+  });
