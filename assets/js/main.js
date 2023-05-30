@@ -118,21 +118,6 @@ const productos = [
 
 ];
 
-const ofertas = document.getElementsByClassName('card-experiencias');
-const productosOferta = productos.filter(producto => producto.category == "oferta");
-productosOferta.forEach(producto => {
-  const card = document.createElement('div');
-  card.classList.add('cardE');
-  card.innerHTML = `<h3>${productos.nombre}</h3>
-                    <p>${productos.caracteristicas}. $<span>${productos.precio}</span></p>
-
-                    <button class="cardE_Btn">Lo Quiero!</button>`;
-  card.querySelector('.cardE_Btn').addEventListener('click', () => {
-    alert('Producto Comprado');
-    card.appendChild(div)
-  });
-
-
   //Menú de navegacion aca debajo
   const toggleButton = document.getElementById('button-menu');
   const navWrapper = document.getElementById('nav-list');
@@ -157,30 +142,3 @@ productosOferta.forEach(producto => {
       }
     });
   });
-
-  const contenidoGaming = document.getElementById('gaming');
-  const h2Gaming = document.createElement('h2');
-  h2Gaming.innerHTML = 'Consolas y accesorios';
-  contenidoGaming.appendChild(h2Gaming);
-  const divGaming = createElement('div');
-  divGaming.classList.add('gaming__article');
-  divGaming.innerHTML = '<immg src=/assets/productos/hogar/gaming-console-mockup_47987-2870.avif>';
-  divGaming.appendChild(divGaming);
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
