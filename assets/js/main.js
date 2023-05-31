@@ -118,7 +118,13 @@ const productos = [
 
 ];
 
-  //Menú de navegacion aca debajo
+// crear un array con los elementos con category:"oferta"
+const productosOfertas = productos.filter((producto) => producto.category === "oferta");
+console.log(productosOfertas);
+
+
+
+  //Menú de navegacion aca debajo (NO TOQUES NADA! MENU OK!)
   const toggleButton = document.getElementById('button-menu');
   const navWrapper = document.getElementById('nav-list');
   const closeMenu = document.getElementById('button-menu');
@@ -142,3 +148,6 @@ const productos = [
       }
     });
   });
+  //------------------------FIN MENU--♪♪♫♫
+
+   
