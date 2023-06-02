@@ -155,8 +155,9 @@ const renderCards = (producto) => {
   cardOfertasContainer.insertAdjacentHTML('afterend', card);
   };
   cardOfertas.forEach(renderCards);
-//-----------------------------------fin cards
+//-----------------------------------fin 
 
+// aca agregue las cards en el DOM( Funciona Ok! - No tocar)
  const promoGaming = document.getElementsByClassName('gaming-content');
  const rendPromGame = productos.find(producto => producto.nombre === "switch");
  const renderPromGame = (producto) => {
@@ -172,8 +173,9 @@ const renderCards = (producto) => {
   <p>Pagá en cuotas fijas</p>
   </div>
   </div>
+  
   `;
-  promoGaming.insertAdjacentHTML('afterend', card);
+  promoGaming.insertAdjacentHTML('Beforerend', card);
   };
   rendPromGame.forEach(renderPromGame);
   //-----------------------------------fin cards
