@@ -141,7 +141,9 @@ const cardOfertas = productos.filter(producto => producto.categoria ==="oferta")
 const renderCards = (producto) => {
   const card = `
   <div class="card">
+  <div class="card__img">
   <img src=${producto.imagen} alt="" class="imagen-card">
+  </div>
   <div class="card_text">
   <h3>${producto.nombre}</h3>
   <p>$ <span>${producto.precio}</span> </p>
@@ -157,7 +159,7 @@ const renderCards = (producto) => {
   cardOfertas.forEach(renderCards);
 //-----------------------------------fin 
 
-// aca agregue las cards en el DOM( Funciona Ok! - No tocar)
+// aca agregar las cards en el DOM( Funciona Ok! - No tocar)
  const promoGaming = document.getElementsByClassName('gaming-content');
  const rendPromGame = productos.find(producto => producto.nombre === "switch");
  const renderPromGame = (producto) => {
