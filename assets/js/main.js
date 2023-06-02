@@ -135,9 +135,9 @@ toggleButton.addEventListener('click', () => {
 });
 //------------------------FIN MENU--♪♪♫♫
 
-// Acá abajo busca y renderiza las cards debajo del hero (falta boton añadir a carrito al hacer hover)
+// Acá abajo busca y renderiza las cards debajo del hero (falta boton añadir a carrito al hacer hover)// ( Funciona Ok! - No tocar)
 const cardOfertasContainer = document.getElementById('cards');
-const cardOfertas = productos.filter(producto => producto.categoria ==="oferta");
+const cardOfertas = productos.filter(producto => producto.categoria === "oferta");
 const renderCards = (producto) => {
   const card = `
   <div class="card">
@@ -155,29 +155,28 @@ const renderCards = (producto) => {
   </div>
   `;
   cardOfertasContainer.insertAdjacentHTML('afterend', card);
-  };
-  cardOfertas.forEach(renderCards);
+};
+cardOfertas.forEach(renderCards);
 //-----------------------------------fin 
-
-// aca agregar las cards en el DOM( Funciona Ok! - No tocar)
- const promoGaming = document.getElementsByClassName('gaming-content');
- const rendPromGame = productos.find(producto => producto.nombre === "switch");
- const renderPromGame = (producto) => {
-  const card = `
-  <div class="cardGaming">
+const SemanaDeOfertas = document.getElementById('card-experiencias');
+const productosRandom = productos.sort(() => Math.random() - 0.3);
+const productosRandomLimit = productosRandom.slice(0, 4);
+const renderCardsRandom = (producto) => {
+  
+  const cardE = `
+  <div class="cardE">
+  <div class="card__img">
   <img src=${producto.imagen} alt="" class="imagen-card">
-  <div class="card_text">
+  </div>
   <h3>${producto.nombre}</h3>
   <p>$ <span>${producto.precio}</span> </p>
-  <i class="fa-brands fa-cc-visa"></i>
-  <i class="fa-brands fa-cc-mastercard"></i>
-  <i class="fa-brands fa-cc-amex"></i>
-  <p>Pagá en cuotas fijas</p>
+  <button class="cardE_Btn">Lo Quiero!</button>
   </div>
-  </div>
-  
   `;
-  promoGaming.insertAdjacentHTML('Beforerend', card);
+  SemanaDeOfertas.insertAdjacentHTML('afterend', cardE);
   };
-  rendPromGame.forEach(renderPromGame);
-  //-----------------------------------fin cards
+  productosRandomLimit.forEach(renderCardsRandom);
+  
+
+
+
