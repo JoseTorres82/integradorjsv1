@@ -2,11 +2,10 @@ const productos = [
   {
     id: 1,
     nombre: "Stanley Quencher",
-    precio: 20.000,
+    precio: 20.199,
     caracteristicas: ["Diametro: 9 cm, Altura: 23 cm, Capacidad: 591ml, Incluye tapa: Si"],
     imagen: "./assets/productos/hogar/stanley-quencher-tumbler-april-2023-642b61bd06f19.png",
-    categoria: 'hogar',
-    category: 'oferta',
+    categoria: 'oferta',
   },
   {
     id: 2,
@@ -37,15 +36,15 @@ const productos = [
   {
     id: 5,
     nombre: "Termo TERMO • ACERO INOXIDABLE 2,3 LITROS ",
-    precio: 51.200,
+    precio: 51.199,
     caracteristicas: ["Diametro: 11,9 cm, Capacidad: 2.3lts, Incluye tapa: Si"],
     imagen: "./assets/productos/hogar/termo-stanley-780x405.png",
     categoria: 'Hogar',
   },
   {
     id: 6,
-    nombre: "Samsung Galaxy S22 Ultra",
-    precio: 560.000,
+    nombre: "Samsung Galaxy S22U",
+    precio: 560.199,
     caracteristicas: ["Memoria Interna: 256Gb",
       "Memoria Ram: 12Gb",
       "Camara Principal: 108 Mpx",
@@ -54,8 +53,7 @@ const productos = [
       "DualSim: Si",
       "Con NFC / Huella:Si"],
     imagen: "./assets/productos/Celulares/s22Ultra.jpg",
-    categoria: 'Celulares',
-    category: 'oferta',
+    categoria: 'oferta',
   },
   {
     id: 7,
@@ -83,71 +81,99 @@ const productos = [
       "DualSim: Si",
       "Con NFC / Huella:Si"],
     imagen: "./assets/productos/Celulares/MotoG22.jpg",
-    categoria: 'Celulares',
-    category: 'oferta',
+    categoria: 'oferta',
   },
   {
     id: 9,
     nombre: "PlayStation 5 ",
     precio: 149.999,
-    caracteristicas: ["Memoria Interna: 128Gb",
-      "Memoria Ram: 4Gb",
-      "Camara Principal: 50 Mpx",
-      "Camara frontal: 16 Mpx",
-      "Pantalla:163.95 mm x 74.94 mm x 8.49 mm",
-      "DualSim: Si",
-      "Con NFC / Huella:Si"],
-    imagen: "./assets/productos/Celulares/MotoG22.jpg",
-    categoria: 'Gaming',
-    category: 'oferta',
+    caracteristicas: ["Sony Playstation",
+      "color blanca", "1 Joystick",
+      "Juego de regalo"],
+    imagen: "./assets/productos/gaming/gaming-console-mockup_47987-2870.avif",
+    categoria: 'oferta',
   },
   {
     id: 10,
     nombre: "Nintendo Switch",
-    precio: 179.999,
-    caracteristicas: ["Memoria Interna: 128Gb",
+    precio: 259.999,
+    caracteristicas: ["Memoria Interna: 32Gb",
       "Memoria Ram: 4Gb",
-      "Camara Principal: 50 Mpx",
-      "Camara frontal: 16 Mpx",
-      "Pantalla:163.95 mm x 74.94 mm x 8.49 mm",
-      "DualSim: Si",
-      "Con NFC / Huella:Si"],
-    imagen: "./assets/productos/Celulares/MotoG22.jpg",
+      "Tipo de consola: Hibrida",
+      "Tipo de alimentación: Baterias",
+      "Resolución:1920px X 1080px",
+      "Wifi: Si",
+      "Incluye Joysticks: 2"],
+    imagen: "./assets/productos//gaming/Nintendo-Switch-PNG-Background.png",
     categoria: 'Gaming',
   },
 
 ];
+//Menú de navegacion aca debajo (NO TOQUES NADA! MENU OK!)
+const toggleButton = document.getElementById('button-menu');
+const navWrapper = document.getElementById('nav-list');
+const closeMenu = document.getElementById('button-menu');
 
-// crear un array con los elementos con category:"oferta"
-const productosOfertas = productos.filter((producto) => producto.category === "oferta");
-console.log(productosOfertas);
+toggleButton.addEventListener('click', () => {
+  navWrapper.classList.toggle('show');
+  navWrapper.classList.toggle('close');
 
-
-
-  //Menú de navegacion aca debajo (NO TOQUES NADA! MENU OK!)
-  const toggleButton = document.getElementById('button-menu');
-  const navWrapper = document.getElementById('nav-list');
-  const closeMenu = document.getElementById('button-menu');
-
-  toggleButton.addEventListener('click', () => {
-    navWrapper.classList.toggle('show');
-    navWrapper.classList.toggle('close');
-
-    if (navWrapper.classList.contains('show')) {
+  if (navWrapper.classList.contains('show')) {
+    navWrapper.classList.add('close');
+    closeMenu.innerHTML = '<i class="fa-solid fa-xmark"></i>Cerrar</button>';
+  } else {
+    navWrapper.classList.remove('close');
+    toggleButton.innerHTML = '<i class="fa-solid fa-bars"></i>Menú</button>';
+  }
+  navWrapper.addEventListener('click', (e) => {
+    if (e.target.nodeName == 'A') {
+      navWrapper.classList.remove('show');
       navWrapper.classList.add('close');
-      closeMenu.innerHTML = '<i class="fa-solid fa-xmark"></i>Cerrar</button>';
-    } else {
-      navWrapper.classList.remove('close');
-      toggleButton.innerHTML = '<i class="fa-solid fa-bars"></i>Menú</button>';
+      closeMenu.innerHTML = '<i class="fa-solid fa-bars"></i>Menú</button>';
     }
-    navWrapper.addEventListener('click', (e) => {
-      if (e.target.nodeName == 'A') {
-        navWrapper.classList.remove('show');
-        navWrapper.classList.add('close');
-        closeMenu.innerHTML = '<i class="fa-solid fa-bars"></i>Menú</button>';
-      }
-    });
   });
-  //------------------------FIN MENU--♪♪♫♫
+});
+//------------------------FIN MENU--♪♪♫♫
 
-   
+// Acá abajo busca y renderiza las cards debajo del hero (falta boton añadir a carrito al hacer hover)
+const cardOfertasContainer = document.getElementById('cards');
+const cardOfertas = productos.filter(producto => producto.categoria ==="oferta");
+const renderCards = (producto) => {
+  const card = `
+  <div class="card">
+  <img src=${producto.imagen} alt="" class="imagen-card">
+  <div class="card_text">
+  <h3>${producto.nombre}</h3>
+  <p>$ <span>${producto.precio}</span> </p>
+  <i class="fa-brands fa-cc-visa"></i>
+                    <i class="fa-brands fa-cc-mastercard"></i>
+                    <i class="fa-brands fa-cc-amex"></i>
+                    <p>Pagá en cuotas fijas</p>
+  </div>
+  </div>
+  `;
+  cardOfertasContainer.insertAdjacentHTML('afterend', card);
+  };
+  cardOfertas.forEach(renderCards);
+//-----------------------------------fin cards
+
+ const promoGaming = document.getElementsByClassName('gaming-content');
+ const rendPromGame = productos.find(producto => producto.nombre === "switch");
+ const renderPromGame = (producto) => {
+  const card = `
+  <div class="cardGaming">
+  <img src=${producto.imagen} alt="" class="imagen-card">
+  <div class="card_text">
+  <h3>${producto.nombre}</h3>
+  <p>$ <span>${producto.precio}</span> </p>
+  <i class="fa-brands fa-cc-visa"></i>
+  <i class="fa-brands fa-cc-mastercard"></i>
+  <i class="fa-brands fa-cc-amex"></i>
+  <p>Pagá en cuotas fijas</p>
+  </div>
+  </div>
+  `;
+  promoGaming.insertAdjacentHTML('afterend', card);
+  };
+  rendPromGame.forEach(renderPromGame);
+  //-----------------------------------fin cards
