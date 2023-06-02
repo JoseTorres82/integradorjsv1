@@ -10,7 +10,7 @@ const productos = [
   {
     id: 2,
     nombre: "Vaso Termico Stanley Acero Inox Pinta ",
-    precio: 12.500,
+    precio: 12.599,
     caracteristicas: ["Diametro: 8,7 cm, Altura: 14,6 cm, Capacidad: 431ml, Incluye tapa: No"],
     imagen: "./assets/productos/hogar/stanley_pinta.jpg",
     categoria: 'hogar',
@@ -19,18 +19,18 @@ const productos = [
   {
     id: 3,
     nombre: "Camp Mug Stanley Taza ",
-    precio: 21.300,
+    precio: 21.399,
     caracteristicas: ["Dimensiones: 29.4 × 9.5 × 9.5 cm, Capacidad: 454ml, Incluye tapa: Si"],
-    imagen: "./assets/productos/hogar/stanley_pinta.jpg",
+    imagen: "./assets/productos/hogar/stanley_campCup.jpeg",
     categoria: 'Hogar, oferta',
 
   },
   {
     id: 4,
     nombre: "Set De 4 Vasos Stanley ",
-    precio: 45.500,
+    precio: 45.599,
     caracteristicas: ["Diametro: 8,7 cm, Altura: 14,6 cm, Capacidad: 431ml, Incluye tapa: No"],
-    imagen: "./assets/productos/hogar/stanley_pinta.jpg",
+    imagen: "./assets/productos/hogar/set-de-4-vasos-stanley.jpg",
     categoria: 'Hogar',
   },
   {
@@ -104,7 +104,7 @@ const productos = [
       "Resolución:1920px X 1080px",
       "Wifi: Si",
       "Incluye Joysticks: 2"],
-    imagen: "./assets/productos//gaming/Nintendo-Switch-PNG-Background.png",
+    imagen: "./assets/productos//gaming/NintendoSwitch.avif",
     categoria: 'Gaming',
   },
 
@@ -168,8 +168,10 @@ const renderCardsRandom = (producto) => {
   <div class="card__img">
   <img src=${producto.imagen} alt="" class="imagen-card">
   </div>
+  <div class="cardE__text">
   <h3>${producto.nombre}</h3>
   <p>$ <span>${producto.precio}</span> </p>
+  </div>
   <button class="cardE_Btn">Lo Quiero!</button>
   </div>
   `;
@@ -177,6 +179,7 @@ const renderCardsRandom = (producto) => {
   };
   productosRandomLimit.forEach(renderCardsRandom);
   
+
 
 
 

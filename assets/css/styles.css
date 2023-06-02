@@ -538,7 +538,7 @@
     height: auto;
     background: #f5f5f5;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -546,39 +546,44 @@
     margin-top: 60px;
   }
 
-  .experiencia h2 {
+  #descubre h2 {
     font-size: 35px;
     font-weight: 700;
     color: #0f0f0f;
     text-align: center;
-    margin-bottom: 80px;
+    margin-top: 50px;
+    margin-bottom: 30px;
   }
 
-   .card-experiencias {
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-  }
+   
 
-  .experiencia .card-experiencias .cardE {
-    box-sizing: border-box;
+  .experiencia  .cardE {
     border: 1px solid #dbdae3;
     width: 280px;
-    height: auto;
+    height: 300px;
     padding: 10px;
     transition: .3s;
     border-radius: 4px;
-    margin: 2px;
+    display: block;
+    text-align: center;
+    margin: 0px auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: #fff;
+    box-shadow: 0px 2px 5px #dbdae3;
+    gap: 10px;
     
   }
 
-  .experiencia .card-experiencias .cardE p {
+  .experiencia .cardE .cardE__text {
+    width: 100%;
+    margin: 0 auto;
+    height: 80px;
     font-family: 'Poppins', sans-serif;
     text-align: center;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
   }
 
   .cardE  span {
@@ -586,10 +591,8 @@
     color: #346add;
     font-weight: 700;
     font-size: 16;
-
-
   }
-  .experiencia .card-experiencias .cardE .card__img{
+  .experiencia .cardE .card__img{
     max-width: 280px;
     margin: 0 auto;
     width: 100%;
@@ -598,8 +601,12 @@
     overflow: hidden;
     border-radius: 5px;
     margin-bottom: 15px;
+    transition: .3s;
   }
-
+  .cardE .card__img:hover{
+    transform: scale(1.1);
+    overflow: visible;
+  }
   .cardE button {
     width: 200px;
     height: 30px;
@@ -623,7 +630,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    object-fit: cover;
+    object-fit: fill;
     color: #0a0330;
     text-align: center;
     text-transform: uppercase;
