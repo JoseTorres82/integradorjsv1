@@ -178,6 +178,14 @@ const renderCardsRandom = (producto) => {
   SemanaDeOfertas.insertAdjacentHTML('afterend', cardE);
   };
   productosRandomLimit.forEach(renderCardsRandom);
+
+  const cardE_Btn = document.querySelectorAll('.cardE_Btn');
+  cardE_Btn.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      alert('Agregado al carrito!');
+      });
+      });
+
   
 
 
