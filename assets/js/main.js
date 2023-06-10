@@ -5,7 +5,8 @@ const productos = [
     precio: 20.199,
     caracteristicas: ["Diametro: 9 cm, Altura: 23 cm, Capacidad: 591ml, Incluye tapa: Si"],
     imagen: "./assets/productos/hogar/stanley-quencher-tumbler-april-2023-642b61bd06f19.png",
-    categoria: 'oferta',
+    categoria: 'hogar',
+    /* category:'oferta' */
   },
   {
     id: 2,
@@ -22,7 +23,8 @@ const productos = [
     precio: 21.399,
     caracteristicas: ["Dimensiones: 29.4 × 9.5 × 9.5 cm, Capacidad: 454ml, Incluye tapa: Si"],
     imagen: "./assets/productos/hogar/stanley_campCup.jpeg",
-    categoria: 'Hogar, oferta',
+    categoria: 'Hogar',
+    category:'oferta'
 
   },
   {
@@ -53,7 +55,8 @@ const productos = [
       "DualSim: Si",
       "Con NFC / Huella:Si"],
     imagen: "./assets/productos/Celulares/s22Ultra.jpg",
-    categoria: 'oferta',
+    categoria: ' celulares',
+    category:'oferta'
   },
   {
     id: 7,
@@ -81,7 +84,8 @@ const productos = [
       "DualSim: Si",
       "Con NFC / Huella:Si"],
     imagen: "./assets/productos/Celulares/MotoG22.jpg",
-    categoria: 'oferta',
+    categoria: ' celulares',
+    category:'oferta'
   },
   {
     id: 9,
@@ -91,7 +95,8 @@ const productos = [
       "color blanca", "1 Joystick",
       "Juego de regalo"],
     imagen: "./assets/productos/gaming/gaming-console-mockup_47987-2870.avif",
-    categoria: 'oferta',
+    categoria: ' gaming',
+    category:'oferta'
   },
   {
     id: 10,
@@ -104,11 +109,21 @@ const productos = [
       "Resolución:1920px X 1080px",
       "Wifi: Si",
       "Incluye Joysticks: 2"],
-    imagen: "./assets/productos//gaming/NintendoSwitch.avif",
+    imagen: "./assets/productos/gaming/NintendoSwitch.avif",
     categoria: 'Gaming',
   },
 
 ];
+
+const buttonMenu = document.getElementById('button-menu');
+const headerContainer = document.getElementById('header-container');
+const headerTopper = document.getElementById('header-topper');
+
+buttonMenu.addEventListener('click', () => {
+  headerContainer.style.top = 0;
+  headerTopper.style.display = 'none';
+});
+
 //Menú de navegacion aca debajo (NO TOQUES NADA! MENU OK!)
 const toggleButton = document.getElementById('button-menu');
 const navWrapper = document.getElementById('nav-list');
@@ -133,11 +148,12 @@ toggleButton.addEventListener('click', () => {
     }
   });
 });
+
 //------------------------FIN MENU--♪♪♫♫
 
 // Acá abajo busca y renderiza las cards debajo del hero (falta boton añadir a carrito al hacer hover)// ( Funciona Ok! - No tocar)
 const cardOfertasContainer = document.getElementById('cards');
-const cardOfertas = productos.filter(producto => producto.categoria === "oferta");
+const cardOfertas = productos.filter(producto => producto.category == "oferta");
 const renderCards = (producto) => {
   const card = `
   <div class="card">
@@ -152,17 +168,23 @@ const renderCards = (producto) => {
                     <i class="fa-brands fa-cc-amex"></i>
                     <p>Pagá en cuotas fijas</p>
   </div>
+  <div class="card__button">
+  <a href="" class="button">Comprar</a>
+  </div>
+  </div>
   </div>
   `;
   cardOfertasContainer.insertAdjacentHTML('afterend', card);
 };
 cardOfertas.forEach(renderCards);
-//-----------------------------------fin 
+//-----------------------------------fin
+
+//cards de "Semana de Ofertas" (OK! no Toque nada mas acá!!)
 const SemanaDeOfertas = document.getElementById('card-experiencias');
 const productosRandom = productos.sort(() => Math.random() - 0.3);
 const productosRandomLimit = productosRandom.slice(0, 4);
 const renderCardsRandom = (producto) => {
-  
+
   const cardE = `
   <div class="cardE">
   <div class="card__img">
@@ -176,18 +198,81 @@ const renderCardsRandom = (producto) => {
   </div>
   `;
   SemanaDeOfertas.insertAdjacentHTML('afterend', cardE);
-  };
-  productosRandomLimit.forEach(renderCardsRandom);
+};
+productosRandomLimit.forEach(renderCardsRandom);
 
-  const cardE_Btn = document.querySelectorAll('.cardE_Btn');
-  cardE_Btn.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      alert('Agregado al carrito!');
-      });
-      });
+const cardE_Btn = document.querySelectorAll('.cardE_Btn');
+cardE_Btn.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    alert('Agregado al carrito!');
+  });
+});
+//--------------------Fin cards Semana de ofertas
 
-  
+/* Buscador de productos ya funciona (JOSE NO TOQUES MAS ESTA PARTE DEL CODIGO) */
+const searchForm = document.getElementById('search-form');
+const searchInput = document.getElementById('product-search');
+const searchContainer = document.getElementById('search-container');
 
+searchForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const searchTerm = searchInput.value.toLowerCase();
 
+  if (searchTerm === 'todas') {
+    renderAllProducts();
+  } else {
+    const matchingProducts = productos.filter((producto) => {
+      const categorias = producto.categoria.toLowerCase().split(',');
+      return categorias.some((categoria) => categoria.trim() === searchTerm);
+    });
 
+    if (matchingProducts.length > 0) {
+      renderSearchResults(matchingProducts);
+    } else {
+      renderNoResults();
+    }
+  }
+});
 
+const renderAllProducts = () => {
+  const searchResultHTML = productos
+    .map((producto) => {
+      return `
+      <div class="search-result">
+      <div class="searchCrad">
+        <div><img src="${producto.imagen}" alt="" class="search-result__img"></div>
+        <h3>${producto.nombre}</h3>
+        <p>${producto.caracteristicas[0]}</p>
+        <p>Precio: $${producto.precio}</p>
+      </div>
+    </div>
+      `;
+    })
+    .join('');
+
+  searchContainer.innerHTML = searchResultHTML;
+};
+
+const renderSearchResults = (matchingProducts) => {
+  const searchResultHTML = matchingProducts
+    .map((producto) => {
+      return `
+      <div class="search-result">
+      <div class="searchCrad">
+        <div><img src="${producto.imagen}" alt="" class="search-result__img"></div>
+        <h3>${producto.nombre}</h3>
+        <p>${producto.caracteristicas[0]}</p>
+        <p>Precio: $${producto.precio}</p>
+      </div>
+    </div>
+      `;
+    })
+    .join('');
+
+  searchContainer.innerHTML = searchResultHTML;
+};
+
+const renderNoResults = () => {
+  searchContainer.innerHTML = '<p>No se encontraron resultados.</p>';
+};
+////------------------------------------FIN BUSCADOR
