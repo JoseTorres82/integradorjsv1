@@ -14,11 +14,11 @@
 
 <body>
     <header>
-        <div class="header-topper">
+        <div class="header-topper" >
             <!--  <div class="left">
 
             </div> -->
-            <div class="right">
+            <div class="right hide">
                 <a href="/index.html">Home</a>
                 <a href="#">Nosotros</a>
                 <a href="#">Contacto</a>
@@ -55,17 +55,20 @@
     <main id="main-container">
         <section class="buscador-productos">
             <form id="search-form">
-                <input id="product-search" type="text" placeholder="Buscar por categorias">
-                <input type="submit" value="" class="btn-buscar">
+                <div class="alineaBusqueda">
+                    <input id="product-search" type="text" placeholder="Buscar por categorias">
+                    <input type="submit" value="" class="btn-buscar">
+                </div>
+                <ol id="categorias">
+                    <h3>Categorias sugeridas:</h3>
+                    <span>Hogar</span>
+                    <span>Celulares</span>
+                    <span>Gaming</span>
+                    <span>Todas</span>
+                </ol>
+                <div id="search-container">
             </form>
-            <ol id="categorias">
-                <h3>Categorias sugeridas:</h3>
-                <span>Hogar</span>
-                <span>Celulares</span>
-                <span>Gaming</span>
-                <span>Todas</span>
-            </ol>
-            <div id="search-container">
+
 
             </div>
         </section>
