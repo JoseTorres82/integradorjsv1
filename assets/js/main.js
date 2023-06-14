@@ -275,4 +275,4 @@ const renderSearchResults = (matchingProducts) => {
 const renderNoResults = () => {
   searchContainer.innerHTML = '<p>No se encontraron resultados.</p>';
 };
-////------------------------------------FIN BUSCADOR
+////------------------------------------FIN BUSCA
