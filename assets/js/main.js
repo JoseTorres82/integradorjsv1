@@ -24,7 +24,7 @@ const productos = [
     caracteristicas: ["Dimensiones: 29.4 × 9.5 × 9.5 cm, Capacidad: 454ml, Incluye tapa: Si"],
     imagen: "./assets/productos/hogar/stanley_campCup.jpeg",
     categoria: 'Hogar',
-    category:'oferta'
+    category: 'oferta'
 
   },
   {
@@ -56,7 +56,7 @@ const productos = [
       "Con NFC / Huella:Si"],
     imagen: "./assets/productos/Celulares/s22Ultra.jpg",
     categoria: ' celulares',
-    category:'oferta'
+    category: 'oferta'
   },
   {
     id: 7,
@@ -85,7 +85,7 @@ const productos = [
       "Con NFC / Huella:Si"],
     imagen: "./assets/productos/Celulares/MotoG22.jpg",
     categoria: ' celulares',
-    category:'oferta'
+    category: 'oferta'
   },
   {
     id: 9,
@@ -96,7 +96,7 @@ const productos = [
       "Juego de regalo"],
     imagen: "./assets/productos/gaming/gaming-console-mockup_47987-2870.avif",
     categoria: ' gaming',
-    category:'oferta'
+    category: 'oferta'
   },
   {
     id: 10,
@@ -210,20 +210,24 @@ cardE_Btn.forEach((btn) => {
 //--------------------Fin cards Semana de ofertas
 
 /* Buscador de productos ya funciona (JOSE NO TOQUES MAS ESTA PARTE DEL CODIGO) */
+
 const searchForm = document.getElementById('search-form');
 const searchInput = document.getElementById('product-search');
 const searchContainer = document.getElementById('search-container');
 
+
 searchForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  const searchTerm = searchInput.value.toLowerCase();
+  
+  const searchTerm = searchInput.value.trim().toLowerCase().substring(0, 3);
 
-  if (searchTerm === 'todas') {
+  if (searchTerm === 'tod') {
     renderAllProducts();
   } else {
     const matchingProducts = productos.filter((producto) => {
+      const nombreProducto = producto.nombre.toLowerCase();
       const categorias = producto.categoria.toLowerCase().split(',');
-      return categorias.some((categoria) => categoria.trim() === searchTerm);
+      return nombreProducto.includes(searchTerm) || categorias.some((categoria) => categoria.trim().includes(searchTerm));
     });
 
     if (matchingProducts.length > 0) {
@@ -233,6 +237,7 @@ searchForm.addEventListener('submit', (event) => {
     }
   }
 });
+
 
 const renderAllProducts = () => {
   const searchResultHTML = productos
@@ -244,13 +249,66 @@ const renderAllProducts = () => {
         <h3>${producto.nombre}</h3>
         <p>${producto.caracteristicas[0]}</p>
         <p>Precio: $${producto.precio}</p>
-      </div>
+        <button class="cardE_Btn">Lo Quiero!</button>
+        </div>
     </div>
       `;
     })
     .join('');
 
   searchContainer.innerHTML = searchResultHTML;
+  const categoriasForm = document.getElementById('categorias');
+const categoriaInputs = categoriasForm.querySelectorAll('input[type="checkbox"]');
+const categoriasContainer = document.getElementById('categorias-container');
+
+categoriasForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const selectedCategorias = Array.from(categoriaInputs)
+    .filter(input => input.checked)
+    .map(input => input.value.toLowerCase());
+
+  if (selectedCategorias.length === 0) {
+    renderNoResults();
+    return;
+  }
+
+  const matchingProducts = productos.filter(producto => {
+    const categorias = producto.categoria.toLowerCase().split(',');
+    return categorias.some(categoria => selectedCategorias.includes(categoria.trim()));
+  });
+
+  if (matchingProducts.length > 0) {
+    renderSearchResults(matchingProducts);
+  } else {
+    renderNoResults();
+  }
+});
+
+const renderSearchResults = matchingProducts => {
+  const searchResultHTML = matchingProducts
+    .map(producto => {
+      return `
+        <div class="search-result">
+          <div class="searchCrad">
+            <div><img src="${producto.imagen}" alt="" class="search-result__img"></div>
+            <h3>${producto.nombre}</h3>
+            <p>${producto.caracteristicas[0]}</p>
+            <p>Precio: $${producto.precio}</p>
+            <button class="cardE_Btn">Lo Quiero!</button>
+          </div>
+        </div>
+      `;
+    })
+    .join('');
+
+  searchContainer.innerHTML = searchResultHTML;
+};
+
+const renderNoResults = () => {
+  searchContainer.innerHTML = '<p>No se encontraron resultados.</p>';
+};
+
 };
 
 const renderSearchResults = (matchingProducts) => {
@@ -263,16 +321,28 @@ const renderSearchResults = (matchingProducts) => {
         <h3>${producto.nombre}</h3>
         <p>${producto.caracteristicas[0]}</p>
         <p>Precio: $${producto.precio}</p>
-      </div>
+        <button class="cardE_Btn">Lo Quiero!</button>
+        </div>
     </div>
       `;
     })
     .join('');
 
   searchContainer.innerHTML = searchResultHTML;
+  
 };
 
 const renderNoResults = () => {
   searchContainer.innerHTML = '<p>No se encontraron resultados.</p>';
+
+  const btnhogar = document.getElementById('categortias-btns');
+    
+  
+  btnhogar.addEventListener('submit', (event) => {
+    event.preventDefault();
+    window.location.href = 'index.html';
+    });
+    
+    
 };
-////------------------------------------FIN BUSCA
+////------------------------------------FIN BUSCAR

@@ -56,44 +56,38 @@
         <section class="buscador-productos">
             <form id="search-form">
                 <div class="alineaBusqueda">
-                    <input id="product-search" type="text" placeholder="Buscar por categorias">
+                    <input id="product-search" type="text" placeholder="Buscar Producto ">
                     <input type="submit" value="" class="btn-buscar">
                 </div>
-                <div id="categorias">
+                <form id="categorias">
                     <h3>Categorias sugeridas:</h3>
-                    <ol>
-                        <span>Hogar</span>
-                        <span>Celulares</span>
-                        <span>Gaming</span>
-                        <span>Todas</span>
-                    </ol>
-                </div>
-                <div id="search-container">
+                    <div id="categortias-btns">
+                        <button type="submit" data-categoria="hogar">Hogar</button>
+                        <button type="submit" data-categoria="celulares">Celulares</button>
+                        <button type="submit" data-categoria="gaming">Gaming</button>
+                        <button type="submit" data-categoria="todas">Todas</button>
+                    </div>
+
+                </form>
+                <div id="search-container"></div>
+
             </form>
 
 
             </div>
         </section>
-        <div id="hero-container">
-            <div class="hero-promo">
-                <div class="hero-text">
-                    <h2>TERMO • ACERO INOXIDABLE 2,5 LITROS</h2>
-                    <p><span> Marca:</span> Stanley.
-                        <span> Modelo:</span> Adventure.
-                        Envío GRATIS a través de MercadoEnvíos!
-                        <span>GARANTÍA</span>
-                        • Garantía de por vida oficial de fábrica Stanley Argentina por defectos de fabricación
-                        únicamente y
-                        a través de sus centros técnicos oficiales (no en el local de venta del producto).
-                    </p>
-                    <div class="btns-container">
-                        <button>Comprar</button> <a href="http://www.facebook.com"><i
-                                class="fa-brands fa-facebook fa-2xl"></i></a>
-                    </div>
-                </div>
+        <div class="slider">
+            <div class="slides">
+                <img src="/assets/productos/hogar/blur-close-up-device-442576-1000x665.jpeg" alt="slide 1">
+                <img src="/assets/productos/hogar/familia-hogar_452079-1192.jpg" alt="slide 2">
+                <img src="/assets/productos/Celulares/s22Ultrawallppr.jpg" alt="slide 3">
             </div>
-
+            <div class="controls">
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+            </div>
         </div>
+
         <div class="cardsContainer">
             <h2>Ofertas Especiales</h2>
             <section id="cards-container" class="cards-container">
@@ -188,6 +182,7 @@
             <p>Todos los derechos reservados <span> <a href="#" target="_blank">GUACAM</a> </span> </p>
         </div>
     </footer>
+    <script src="/assets/js/slider.js"></script>
     <script src="/assets/js/main.js"></script>
 </body>
 
