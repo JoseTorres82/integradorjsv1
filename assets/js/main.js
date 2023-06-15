@@ -120,8 +120,8 @@ const headerContainer = document.getElementById('header-container');
 const headerTopper = document.getElementById('header-topper');
 
 buttonMenu.addEventListener('click', () => {
-  headerContainer.style.top = 0;
-  headerTopper.style.display = 'none';
+/*   headerContainer.style.top = 0;
+  headerTopper.style.display = 'none'; */
 });
 
 //Menú de navegacion aca debajo (NO TOQUES NADA! MENU OK!)
@@ -214,6 +214,7 @@ cardE_Btn.forEach((btn) => {
 const searchForm = document.getElementById('search-form');
 const searchInput = document.getElementById('product-search');
 const searchContainer = document.getElementById('search-container');
+const btnCategorias = document.getElementById('categorias')
 
 
 searchForm.addEventListener('submit', (event) => {

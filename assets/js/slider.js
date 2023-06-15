@@ -8,7 +8,7 @@ const slideWith = slides.clientWidth;
 let slideIndex = 0;
 
 const moveToSlide = () => {
-    slides.style.transform = `translateX (${-slideWith * slideIndex}px)`;
+    slides.style.transform = `translateX(${-slideWith * slideIndex}px)`;
 };
 
 const nextSlide = () => {
